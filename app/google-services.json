@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "541727191636",
+    "firebase_url": "https://ourbabykoishi.firebaseio.com",
+    "project_id": "ourbabykoishi",
+    "storage_bucket": "ourbabykoishi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541727191636:android:e6d2b78a3d2af8e53db3c1",
+        "android_client_info": {
+          "package_name": "com.example.chatbotourbabykoishi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541727191636-tkageke79tm3k0lqf86cs7ja9iu73tfq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chatbotourbabykoishi",
+            "certificate_hash": "01c8b4f6eba3d20009b5815b4b5eec0633a4a8c2"
+          }
+        },
+        {
+          "client_id": "541727191636-l2qnrvi5hms0dadq0hcf8q4codsbamg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5PNcVLvUcbaewwkTZ0jZMMfDDQDdD36c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541727191636-l2qnrvi5hms0dadq0hcf8q4codsbamg1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
