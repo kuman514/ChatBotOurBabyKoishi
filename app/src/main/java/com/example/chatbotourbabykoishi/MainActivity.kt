@@ -9,6 +9,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,21 +20,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        basicReadWrite()
+        //helloKoishi()
     }
 
-    private fun basicReadWrite() {
+    private fun helloKoishi() {
         // [START write_message]
         // Write a message to the database
         val database = Firebase.database
-        val myRef = database.getReference("message")
+        val msgSend = database.getReference("messages").child(Calendar.MILLISECOND.toString())
 
-        myRef.setValue("Hello, Koishi!")
+        val msgUid = msgSend.child("uid")
+        val msgCont = msgSend.child("content")
+
+        msgUid.setValue("kuman514")
+        msgCont.setValue("Hello, Koishi!")
         // [END write_message]
 
+        /*
         // [START read_message]
         // Read from the database
-        myRef.addValueEventListener(object : ValueEventListener {
+        msgSend.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
@@ -47,5 +53,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
         // [END read_message]
+        */
     }
 }
