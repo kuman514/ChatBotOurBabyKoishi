@@ -1,47 +1,26 @@
 package com.example.chatbotourbabykoishi
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 
 
-class ChatAdapter(_messageItems : ArrayList<ChatData>, _layoutInflater: LayoutInflater) : BaseAdapter() {
-    val chatMessages : ArrayList<ChatData> = _messageItems
-    val layoutInflater : LayoutInflater = _layoutInflater
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val chatMsg : ChatData = chatMessages[position]
-
-        val itemView : View = if (chatMsg.uid.equals(PersonalInfo.id)) {
-            layoutInflater.inflate(R.layout.rvitem_chattingmessage_me, parent,false)
-        } else {
-            layoutInflater.inflate(R.layout.rvitem_chattingmessage, parent,false)
-        }
-
-        //val profilePic = itemView.findViewById<ImageView>(R.id.chattingMessageProfileImageView)
-        val tvName = itemView.findViewById<TextView>(R.id.chattingMessageNameTextView)
-        val tvMsg = itemView.findViewById<TextView>(R.id.chattingMessageTextView)
-        val tvTime = itemView.findViewById<TextView>(R.id.chattingMessageTimestampTextView)
-
-        tvName.text = chatMsg.uid
-        tvMsg.text = chatMsg.content
-        tvTime.text = chatMsg.chatTime.toString()
-
-        return itemView
+class ChatAdapter(val context: Context, var listData : ArrayList<ChatData>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        TODO("Not yet implemented")
     }
 
-    override fun getItem(position: Int): Any {
-        return chatMessages[position]
+    override fun getItemCount(): Int {
+        TODO("Not yet implemented")
     }
 
-    override fun getItemId(position: Int): Long {
-        return chatMessages[position].chatTime
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        TODO("Not yet implemented")
     }
 
-    override fun getCount(): Int {
-        return chatMessages.size
-    }
 }
