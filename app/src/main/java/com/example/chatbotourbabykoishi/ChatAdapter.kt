@@ -2,25 +2,43 @@ package com.example.chatbotourbabykoishi
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-
 class ChatAdapter(val context: Context, var listData : ArrayList<ChatData>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        TODO("Not yet implemented")
+        return if (viewType == 2) {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.rvitem_chattingmessage, parent, false)
+            ChatKoishiViewHolder(view)
+        }
+        else {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.rvitem_chattingmessage_me, parent, false)
+            ChatMyViewHolder(view)
+        }
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return listData.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val msg = listData[position]
+        if (holder is ChatKoishiViewHolder) {
+            // Smart cast
+            holder.setChattingRoom(msg)
+        } else if (holder is ChatMyViewHolder) {
+            // Smart cast
+            holder.setChattingRoom(msg)
+        }
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return if (PersonalInfo.id.equals(listData.get(position).uid)) {
+            1
+        } else {
+            2
+        }
     }
 
 }
