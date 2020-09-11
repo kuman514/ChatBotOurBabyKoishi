@@ -9,12 +9,14 @@ class ChatAdapter(val context: Context, var listData : ArrayList<ChatData>) : Re
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == 2) {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.rvitem_chattingmessage, parent, false)
-            ChatKoishiViewHolder(view)
+            ChatKoishiViewHolder(LayoutInflater
+                .from(parent.context)
+                .inflate(R.layout.rvitem_chattingmessage, parent, false))
         }
         else {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.rvitem_chattingmessage_me, parent, false)
-            ChatMyViewHolder(view)
+            ChatMyViewHolder(LayoutInflater
+                .from(parent.context)
+                .inflate(R.layout.rvitem_chattingmessage_me, parent, false))
         }
     }
 

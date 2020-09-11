@@ -13,7 +13,7 @@ import java.util.Calendar
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        private const val TAG = "OurBabyKoishiDebug"
+        const val TAG = "OurBabyKoishiDebug"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

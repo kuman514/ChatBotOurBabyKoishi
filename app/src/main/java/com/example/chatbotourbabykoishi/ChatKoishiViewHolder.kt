@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.rvitem_chattingmessage.view.*
 
 class ChatKoishiViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun setChattingRoom(chatMsg: ChatData){
+    fun setChattingRoom(chatMsg: ChatData) {
         val tvName = itemView.chattingMessageNameTextView
         val tvMsg = itemView.chattingMessageTextView
         val tvTime = itemView.chattingMessageTimestampTextView
