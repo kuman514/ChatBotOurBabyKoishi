@@ -3,4 +3,5 @@
     <string name="sendButtonName">보내기</string>
     <string name="chatContentName">애기코이시한테 하고 싶은 말?</string>
     <string name="koishiChattingName">코이시</string>
+    <string name="koishiChattingId">Koishi</string>
 </resources>
