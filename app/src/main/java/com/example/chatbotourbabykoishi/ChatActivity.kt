@@ -7,6 +7,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
@@ -46,8 +47,24 @@ class ChatActivity : AppCompatActivity() {
         // [DONE Get references]
 
         // [Setup the references]
+        listView!!.adapter = this.adapter
+        listView!!.layoutManager = LinearLayoutManager(this)
+        listView!!.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+            if (bottom < oldBottom) {
+                listView!!.postDelayed(Runnable() {
+                    if(messageItems.size != 0) {
+                        listView!!.smoothScrollToPosition(messageItems.size - 1)
+                    }
+                }, 100)
+            }
+        }
+        adapter!!.notifyDataSetChanged()
+
         sendBtn!!.setOnClickListener {
-            clickSend()
+            if (contentText!!.text.toString() != "")
+            {
+                clickSend()
+            }
         }
         // [DONE Setup the references]
     }
@@ -55,9 +72,7 @@ class ChatActivity : AppCompatActivity() {
     private fun readMyMessages() : ArrayList<ChatData> {
         val msgData = ArrayList<ChatData>()
         val msgEventListener = object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
+            override fun onCancelled(error: DatabaseError) {}
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 msgData.clear()
@@ -74,10 +89,6 @@ class ChatActivity : AppCompatActivity() {
 
                 msgData.sortBy {
                     it.time
-                }
-
-                for (i in 0 until msgData.count()) {
-                    Log.d(MainActivity.TAG + "ChatActivity", "${msgData[i].time}")
                 }
             }
         }
@@ -98,5 +109,8 @@ class ChatActivity : AppCompatActivity() {
         val imm: InputMethodManager =
             getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+
+        // [NEXT] Get Koishi's response by using Dialogflow system
+        //
     }
 }
