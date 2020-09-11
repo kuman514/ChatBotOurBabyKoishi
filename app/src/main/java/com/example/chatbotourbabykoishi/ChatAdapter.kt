@@ -36,7 +36,7 @@ class ChatAdapter(val context: Context, var listData : ArrayList<ChatData>) : Re
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (PersonalInfo.id.equals(listData.get(position).uid)) {
+        return if (PersonalInfo.id.equals(listData.get(position).sender)) {
             1
         } else {
             2

@@ -5,11 +5,11 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlin.collections.ArrayList
 
 
 class ChatActivity : AppCompatActivity() {
@@ -45,7 +45,9 @@ class ChatActivity : AppCompatActivity() {
         // [DONE Get references]
 
         // [Setup the references]
-
+        sendBtn!!.setOnClickListener {
+            clickSend()
+        }
         // [DONE Setup the references]
     }
 
@@ -70,16 +72,26 @@ class ChatActivity : AppCompatActivity() {
                 }
 
                 msgData.sortBy {
-                    it.chatTime
+                    it.time
                 }
 
                 for (i in 0 until msgData.count()) {
-                    Log.d(MainActivity.TAG + "ChatActivity", "${msgData[i].chatTime}")
+                    Log.d(MainActivity.TAG + "ChatActivity", "${msgData[i].time}")
                 }
             }
         }
 
         chatRef!!.addValueEventListener(msgEventListener)
         return msgData
+    }
+
+    private fun clickSend() {
+        val uid: String = PersonalInfo.id!!
+        val cont: String = contentText!!.text.toString()
+        val time: Long = System.currentTimeMillis()
+
+        val msgToSend = ChatData(time, uid, cont)
+        chatRef!!.push().setValue(msgToSend)
+        contentText!!.text.clear()
     }
 }

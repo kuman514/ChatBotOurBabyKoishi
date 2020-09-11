@@ -10,8 +10,8 @@ class ChatKoishiViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvMsg = itemView.chattingMessageTextView
         val tvTime = itemView.chattingMessageTimestampTextView
 
-        tvName.text = chatMsg.uid
+        tvName.text = chatMsg.sender
         tvMsg.text = chatMsg.content
-        tvTime.text = chatMsg.chatTime.toString()
+        tvTime.text = chatMsg.time.toString()
     }
 }

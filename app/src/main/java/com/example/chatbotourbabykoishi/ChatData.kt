@@ -2,5 +2,5 @@ package com.example.chatbotourbabykoishi
 
 import java.io.Serializable
 
-class ChatData(var chatTime: Long, var uid: String, var content: String) : Serializable {
+class ChatData(var time: Long, var sender: String, var content: String) : Serializable {
 }
