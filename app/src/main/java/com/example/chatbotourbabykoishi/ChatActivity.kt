@@ -1,7 +1,9 @@
 package com.example.chatbotourbabykoishi
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlin.collections.ArrayList
 
 
 class ChatActivity : AppCompatActivity() {
@@ -93,5 +94,9 @@ class ChatActivity : AppCompatActivity() {
         val msgToSend = ChatData(time, uid, cont)
         chatRef!!.push().setValue(msgToSend)
         contentText!!.text.clear()
+
+        val imm: InputMethodManager =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
     }
 }
