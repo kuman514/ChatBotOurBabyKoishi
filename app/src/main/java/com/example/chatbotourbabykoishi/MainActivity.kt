@@ -32,37 +32,6 @@ class MainActivity : AppCompatActivity() {
     private fun helloKoishi() {
         // For testing
         PersonalInfo.id = "kuman514"
-
-        /*
-        // [START write_message]
-        // Write a message to the database
-        val database = Firebase.database
-        val msgSend = database.getReference("messages").child(Calendar.MILLISECOND.toString())
-
-        val msgUid = msgSend.child("uid")
-        val msgCont = msgSend.child("content")
-
-        msgUid.setValue(PersonalInfo.id)
-        msgCont.setValue("Hello, Koishi!")
-        // [END write_message]
-
-        // [START read_message]
-        // Read from the database
-        msgSend.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                val value = dataSnapshot.getValue<String>()
-                Log.d(TAG, "Value is: $value")
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException())
-            }
-        })
-        // [END read_message]
-        */
     }
 
     private fun showTitle() {
