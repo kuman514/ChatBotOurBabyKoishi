@@ -18,4 +18,8 @@ class TitleActivity: Activity() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
+
+    override fun onBackPressed() {
+        // Prevent backpress interrupt
+    }
 }

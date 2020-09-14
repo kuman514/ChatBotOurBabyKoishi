@@ -20,10 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        helloKoishi()
-        //showTitle()
-        //setNickname()
-        enterChatbot()
+        //helloKoishi()
+        setNickname()
+        //enterChatbot()
 
         // Main activity terminates right after exiting the chat activity
         finish()
@@ -34,12 +33,9 @@ class MainActivity : AppCompatActivity() {
         PersonalInfo.id = "kuman514"
     }
 
-    private fun showTitle() {
-        TODO("Not implemented yet")
-    }
-
     private fun setNickname() {
-        TODO("Not implemented yet")
+        val setNameIntent = Intent(this, SetNicknameActivity::class.java)
+        startActivity(setNameIntent)
     }
 
     private fun enterChatbot() {

@@ -4,4 +4,7 @@
     <string name="chatContentName">애기코이시한테 하고 싶은 말?</string>
     <string name="koishiChattingName">코이시</string>
     <string name="koishiChattingId">Koishi</string>
+    <string name="enterYourNickname">닉네임을 입력해주세요.</string>
+    <string name="koishiPicture">Koishi\'s Picture</string>
+    <string name="enterKoishiChatbot">들어가기</string>
 </resources>
