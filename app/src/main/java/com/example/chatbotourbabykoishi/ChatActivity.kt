@@ -119,14 +119,80 @@ class ChatActivity : AppCompatActivity() {
     private fun koishiResponse(msg: String) {
         // Get Dialogflow intent
         val result = KoishiChatBot.talkToKoishi(123, msg)
+
+        // Koishi's message
         val responseMsg = result.fulfillmentText
         Log.d(MainActivity.TAG + "ChatBotResponse", responseMsg)
 
-        val uid = "${R.string.koishiChattingId}"
+        val uid = getString(R.string.koishiChattingId)
         val time: Long = System.currentTimeMillis()
 
         val msgToSend = ChatData(time, uid, responseMsg)
         chatRef!!.push().setValue(msgToSend)
+
+        // Neutral message
+        neutralMessage(result.intent.displayName)
+
         contentText!!.text.clear()
+    }
+
+    private fun neutralMessage(displayName: String) {
+        Log.d(MainActivity.TAG + "ChatBotResponseType", displayName)
+        when (displayName) {
+            "FeelingBerigoo" -> onFeelingBerigoo()
+            "GettingAsleep" -> onGettingAsleep()
+            "HavingMeal" -> onHavingMeal()
+            "RelaxedByPat" -> onRelaxedByPat()
+            "SayingHello" -> onSayingHello()
+            else -> onDidNotUnderstand()
+        }
+    }
+
+    private fun onFeelingBerigoo() {
+        val msg = getString(R.string.chatbotFeelingBerigoo)
+        val uid = getString(R.string.neutralMessageId)
+        val time: Long = System.currentTimeMillis()
+        val msgToSend = ChatData(time, uid, msg)
+        chatRef!!.push().setValue(msgToSend)
+    }
+
+    private fun onGettingAsleep() {
+        val msg = getString(R.string.chatbotGettingAsleep)
+        val uid = getString(R.string.neutralMessageId)
+        val time: Long = System.currentTimeMillis()
+        val msgToSend = ChatData(time, uid, msg)
+        chatRef!!.push().setValue(msgToSend)
+    }
+
+    private fun onHavingMeal() {
+        val msg = getString(R.string.chatbotHavingMeal)
+        val uid = getString(R.string.neutralMessageId)
+        val time: Long = System.currentTimeMillis()
+        val msgToSend = ChatData(time, uid, msg)
+        chatRef!!.push().setValue(msgToSend)
+    }
+
+    private fun onRelaxedByPat() {
+        val msg = getString(R.string.chatbotRelaxedByPat)
+        val uid = getString(R.string.neutralMessageId)
+        val time: Long = System.currentTimeMillis()
+        val msgToSend = ChatData(time, uid, msg)
+        chatRef!!.push().setValue(msgToSend)
+    }
+
+    private fun onSayingHello() {
+        val msg = getString(R.string.chatbotSayingHello)
+        val uid = getString(R.string.neutralMessageId)
+        val time: Long = System.currentTimeMillis()
+        val msgToSend = ChatData(time, uid, msg)
+        chatRef!!.push().setValue(msgToSend)
+    }
+
+    private fun onDidNotUnderstand() {
+        val msg = getString(R.string.chatbotDidNotUnderstand)
+        val uid = getString(R.string.neutralMessageId)
+        val time: Long = System.currentTimeMillis()
+        val msgToSend = ChatData(time, uid, msg)
+        chatRef!!.push().setValue(msgToSend)
     }
 }

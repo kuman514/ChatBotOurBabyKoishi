@@ -4,7 +4,15 @@
     <string name="chatContentName">애기코이시한테 하고 싶은 말?</string>
     <string name="koishiChattingName">코이시</string>
     <string name="koishiChattingId">Koishi</string>
+    <string name="neutralMessageId">Neutral</string>
     <string name="enterYourNickname">닉네임을 입력해주세요.</string>
     <string name="koishiPicture">Koishi\'s Picture</string>
     <string name="enterKoishiChatbot">들어가기</string>
+
+    <string name="chatbotFeelingBerigoo">애기코이시 기분이 berigoo!</string>
+    <string name="chatbotGettingAsleep">애기코이시가 새근새근 잡니다</string>
+    <string name="chatbotHavingMeal">애기코이시 맛있게 냠냠~</string>
+    <string name="chatbotRelaxedByPat">애기코이시 쓰담받아서 편안해요</string>
+    <string name="chatbotSayingHello">애기코이시가 반가워해요</string>
+    <string name="chatbotDidNotUnderstand">애기코이시가 못알아들었어요</string>
 </resources>
