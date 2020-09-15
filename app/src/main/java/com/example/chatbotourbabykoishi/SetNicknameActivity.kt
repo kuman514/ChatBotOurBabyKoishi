@@ -13,10 +13,15 @@ class SetNicknameActivity: AppCompatActivity() {
 
         enterChatbotButton.setOnClickListener {
             if (enterName.text.toString().isNotEmpty()) {
-                PersonalInfo.id = enterName.text.toString()
-                val chatIntent = Intent(this, ChatActivity::class.java)
-                startActivity(chatIntent)
-                finish()
+                if (enterName.text.toString() == "Koishi" || enterName.text.toString() == "Neutral") {
+                    // Not Authorized.
+                }
+                else {
+                    PersonalInfo.id = enterName.text.toString()
+                    val chatIntent = Intent(this, ChatActivity::class.java)
+                    startActivity(chatIntent)
+                    finish()
+                }
             }
         }
     }
