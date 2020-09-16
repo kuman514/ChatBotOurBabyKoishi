@@ -64,9 +64,11 @@ class ChatActivity : AppCompatActivity() {
         adapter!!.notifyDataSetChanged()
 
         sendBtn!!.setOnClickListener {
-            if (contentText!!.text.toString() != "")
+            if (contentText!!.text.toString().isNotEmpty())
             {
                 clickSend()
+                koishiResponse(contentText!!.text.toString())
+                contentText!!.text.clear()
             }
         }
         // [DONE Setup the references]
@@ -107,13 +109,13 @@ class ChatActivity : AppCompatActivity() {
 
         val msgToSend = ChatData(time, uid, cont)
         chatRef!!.push().setValue(msgToSend)
-        contentText!!.text.clear()
+        //contentText!!.text.clear()
 
         val imm: InputMethodManager =
             getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
 
-        koishiResponse(cont)
+        //koishiResponse(cont)
     }
 
     private fun koishiResponse(msg: String) {
