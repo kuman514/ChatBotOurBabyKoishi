@@ -2,6 +2,7 @@ package com.example.chatbotourbabykoishi
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_setnickname.*
 
@@ -14,7 +15,7 @@ class SetNicknameActivity: AppCompatActivity() {
         enterChatbotButton.setOnClickListener {
             if (enterName.text.toString().isNotEmpty()) {
                 if (enterName.text.toString() == "Koishi" || enterName.text.toString() == "Neutral") {
-                    // Not Authorized.
+                    Toast.makeText(applicationContext, "그 이름은 사용할 수 없습니다.", Toast.LENGTH_SHORT).show()
                 }
                 else {
                     PersonalInfo.id = enterName.text.toString()
@@ -22,6 +23,9 @@ class SetNicknameActivity: AppCompatActivity() {
                     startActivity(chatIntent)
                     finish()
                 }
+            }
+            else {
+                Toast.makeText(applicationContext, "이름을 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
         }
     }
