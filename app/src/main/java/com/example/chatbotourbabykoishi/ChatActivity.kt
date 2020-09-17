@@ -44,6 +44,7 @@ class ChatActivity : AppCompatActivity() {
 
         firebaseDatabase = Firebase.database
         chatRef = firebaseDatabase!!.getReference("messages").child(PersonalInfo.id!!)
+        KoishiStatus.initStatus(firebaseDatabase!!)
 
         messageItems = readMyMessages()
         adapter = ChatAdapter(this, messageItems)
