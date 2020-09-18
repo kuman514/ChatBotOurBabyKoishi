@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_chat.*
 
 class ChatActivity : AppCompatActivity() {
 
@@ -69,10 +70,12 @@ class ChatActivity : AppCompatActivity() {
             {
                 clickSend()
                 koishiResponse(contentText!!.text.toString())
-                contentText!!.text.clear()
+                //contentText!!.text.clear()
             }
         }
         // [DONE Setup the references]
+
+        showKoishiStatus()
     }
 
     private fun readMyMessages() : ArrayList<ChatData> {
@@ -101,6 +104,13 @@ class ChatActivity : AppCompatActivity() {
 
         chatRef!!.addValueEventListener(msgEventListener)
         return msgData
+    }
+
+    private fun showKoishiStatus() {
+        fatiguePoint.text = KoishiStatus.fatigue.toString()
+        favorabilityPoint.text = KoishiStatus.favorability.toString()
+        fullnessPoint.text = KoishiStatus.fullness.toString()
+        happinessPoint.text = KoishiStatus.happiness.toString()
     }
 
     private fun clickSend() {
@@ -149,6 +159,8 @@ class ChatActivity : AppCompatActivity() {
             "SayingHello" -> onSayingHello()
             else -> onDidNotUnderstand()
         }
+
+        showKoishiStatus()
     }
 
     private fun onFeelingBerigoo() {
@@ -157,6 +169,9 @@ class ChatActivity : AppCompatActivity() {
         val time: Long = System.currentTimeMillis()
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
+
+        KoishiStatus.modifyValue(1, 2, -1, 4)
+        KoishiStatus.updateValue()
     }
 
     private fun onGettingAsleep() {
@@ -165,6 +180,9 @@ class ChatActivity : AppCompatActivity() {
         val time: Long = System.currentTimeMillis()
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
+
+        KoishiStatus.modifyValue(-50, 0, -10, 5)
+        KoishiStatus.updateValue()
     }
 
     private fun onHavingMeal() {
@@ -173,6 +191,9 @@ class ChatActivity : AppCompatActivity() {
         val time: Long = System.currentTimeMillis()
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
+
+        KoishiStatus.modifyValue(2, 2, 50, 5)
+        KoishiStatus.updateValue()
     }
 
     private fun onRelaxedByPat() {
@@ -181,6 +202,9 @@ class ChatActivity : AppCompatActivity() {
         val time: Long = System.currentTimeMillis()
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
+
+        KoishiStatus.modifyValue(1, 5, -1, 5)
+        KoishiStatus.updateValue()
     }
 
     private fun onSayingHello() {
@@ -189,6 +213,9 @@ class ChatActivity : AppCompatActivity() {
         val time: Long = System.currentTimeMillis()
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
+
+        KoishiStatus.modifyValue(2, 1, -2, 1)
+        KoishiStatus.updateValue()
     }
 
     private fun onDidNotUnderstand() {
