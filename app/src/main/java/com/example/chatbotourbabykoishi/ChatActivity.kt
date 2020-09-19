@@ -7,6 +7,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
@@ -47,47 +48,45 @@ class ChatActivity : AppCompatActivity() {
         chatRef = firebaseDatabase!!.getReference("messages").child(PersonalInfo.id!!)
         KoishiStatus.initStatus(firebaseDatabase!!)
 
-        messageItems = readMyMessages()
         adapter = ChatAdapter(this, messageItems)
         // [DONE Get references]
 
         // [Setup the references]
         listView!!.adapter = this.adapter
         listView!!.layoutManager = LinearLayoutManager(this)
-        listView!!.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+        listView!!.addOnLayoutChangeListener { _, _, _, _, bottom, _, _, _, oldBottom ->
             if (bottom < oldBottom) {
                 listView!!.postDelayed( {
                     if(messageItems.size != 0) {
-                        listView!!.smoothScrollToPosition(messageItems.size - 1)
+                        listView!!.scrollToPosition(messageItems.size - 1)
                     }
                 }, 100)
             }
         }
-        adapter!!.notifyDataSetChanged()
 
         sendBtn!!.setOnClickListener {
             if (contentText!!.text.toString().isNotEmpty())
             {
                 clickSend()
                 koishiResponse(contentText!!.text.toString())
-                //contentText!!.text.clear()
+                contentText!!.text.clear()
             }
         }
         // [DONE Setup the references]
 
         showKoishiStatus()
+        readMyMessages()
     }
 
-    private fun readMyMessages() : ArrayList<ChatData> {
-        val msgData = ArrayList<ChatData>()
+    private fun readMyMessages() {
         val msgEventListener = object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {}
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                msgData.clear()
+                messageItems.clear()
                 for (msgSnapshot in snapshot.children) {
                     Log.d(MainActivity.TAG + "Snapshot", msgSnapshot.toString())
-                    msgData.add(
+                    messageItems.add(
                         ChatData(
                             msgSnapshot.child("time").value as Long,
                             msgSnapshot.child("sender").value as String,
@@ -96,14 +95,18 @@ class ChatActivity : AppCompatActivity() {
                     )
                 }
 
-                msgData.sortBy {
+                messageItems.sortBy {
                     it.time
+                }
+
+                adapter!!.notifyDataSetChanged()
+                if (messageItems.size != 0) {
+                    listView!!.scrollToPosition(messageItems.size - 1)
                 }
             }
         }
 
         chatRef!!.addValueEventListener(msgEventListener)
-        return msgData
     }
 
     private fun showKoishiStatus() {
@@ -125,8 +128,6 @@ class ChatActivity : AppCompatActivity() {
         val imm: InputMethodManager =
             getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
-
-        //koishiResponse(cont)
     }
 
     private fun koishiResponse(msg: String) {
@@ -145,8 +146,6 @@ class ChatActivity : AppCompatActivity() {
 
         // Neutral message
         neutralMessage(result.intent.displayName)
-
-        contentText!!.text.clear()
     }
 
     private fun neutralMessage(displayName: String) {
