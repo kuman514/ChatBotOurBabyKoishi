@@ -46,7 +46,7 @@ class ChatActivity : AppCompatActivity() {
 
         firebaseDatabase = Firebase.database
         chatRef = firebaseDatabase!!.getReference("messages").child(PersonalInfo.id!!)
-        KoishiStatus.initStatus(firebaseDatabase!!)
+        KoishiStatus.initStatus(firebaseDatabase!!, this)
 
         adapter = ChatAdapter(this, messageItems)
         // [DONE Get references]
@@ -74,7 +74,7 @@ class ChatActivity : AppCompatActivity() {
         }
         // [DONE Setup the references]
 
-        showKoishiStatus()
+        //showKoishiStatus()
         readMyMessages()
     }
 
@@ -109,7 +109,7 @@ class ChatActivity : AppCompatActivity() {
         chatRef!!.addValueEventListener(msgEventListener)
     }
 
-    private fun showKoishiStatus() {
+    fun showKoishiStatus() {
         fatiguePoint.text = KoishiStatus.fatigue.toString()
         favorabilityPoint.text = KoishiStatus.favorability.toString()
         fullnessPoint.text = KoishiStatus.fullness.toString()

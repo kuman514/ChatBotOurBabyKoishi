@@ -19,8 +19,6 @@
     <string name="favorabilityStr">호감도</string>
     <string name="fullnessStr">포만감</string>
     <string name="happinessStr">행복</string>
-    <string name="ftgpnt">ftgPnt</string>
-    <string name="favpnt">favPnt</string>
-    <string name="fulpnt">fulPnt</string>
-    <string name="happnt">hapPnt</string>
+
+    <string name="pntLoading">로딩중</string>
 </resources>

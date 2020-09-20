@@ -11,7 +11,7 @@ object KoishiStatus {
 
     var statRef: DatabaseReference? = null
 
-    fun initStatus(firebaseDatabase: FirebaseDatabase) {
+    fun initStatus(firebaseDatabase: FirebaseDatabase, chatActivity: ChatActivity) {
         statRef = firebaseDatabase.getReference("koishistatus").child(PersonalInfo.id!!)
         statRef!!.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {}
@@ -24,12 +24,13 @@ object KoishiStatus {
                     happiness = snapshot.child("happiness").value as Long
                 }
                 else {
-                    // run some code
                     statRef!!.child("fatigue").setValue(fatigue)
                     statRef!!.child("favorability").setValue(favorability)
                     statRef!!.child("fullness").setValue(fullness)
                     statRef!!.child("happiness").setValue(happiness)
                 }
+
+                chatActivity.showKoishiStatus()
             }
         })
     }
