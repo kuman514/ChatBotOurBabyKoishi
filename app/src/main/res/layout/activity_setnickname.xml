@@ -10,38 +10,49 @@
         android:id="@+id/koishiPicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
-        android:layout_marginBottom="51dp"
         android:contentDescription="@string/koishiPicture"
-        app:layout_constraintBottom_toTopOf="@+id/enterName"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_koishi" />
 
-    <EditText
-        android:id="@+id/enterName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/enterYourNickname"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/enterChatbotButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/enterChatbotButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="132dp"
-        android:text="@string/enterKoishiChatbot"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/koishiPicture">
+
+        <EditText
+            android:id="@+id/enterName"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/enterYourNickname"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/enterChatbotButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/enterChatbotButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/enterKoishiChatbot"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/enterName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
