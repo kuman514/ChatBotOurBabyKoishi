@@ -14,6 +14,9 @@ import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_chat.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 class ChatActivity : AppCompatActivity() {
 
@@ -65,10 +68,12 @@ class ChatActivity : AppCompatActivity() {
         }
 
         sendBtn!!.setOnClickListener {
-            if (contentText!!.text.toString().isNotEmpty())
-            {
+            if (contentText!!.text.toString().isNotEmpty()) {
+                val msgToKoishi = contentText!!.text.toString()
                 clickSend()
-                koishiResponse(contentText!!.text.toString())
+                GlobalScope.async {
+                    koishiResponse(msgToKoishi)
+                }
                 contentText!!.text.clear()
             }
         }
