@@ -229,4 +229,13 @@ class ChatActivity : AppCompatActivity() {
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        // how to kill app process completely
+        moveTaskToBack(true)
+        finishAndRemoveTask()
+        android.os.Process.killProcess(android.os.Process.myPid())
+    }
 }
