@@ -86,11 +86,11 @@ class ChatActivity : AppCompatActivity() {
     }
 
     private fun readMyMessages() {
-        val msgEventListener = object : ValueEventListener {
+        // Get all existing messages from database, for initialization
+        val msgInitListener = object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {}
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                messageItems.clear()
                 for (msgSnapshot in snapshot.children) {
                     //Log.d(MainActivity.TAG + "Snapshot", msgSnapshot.toString())
                     messageItems.add(
@@ -113,6 +113,32 @@ class ChatActivity : AppCompatActivity() {
             }
         }
 
+        // When updating, append an item
+        val msgEventListener = object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {}
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    val msgSnapshot : DataSnapshot = snapshot.children.last()
+
+                    //Log.d(MainActivity.TAG + "NewSnapshot", msgSnapshot.toString())
+                    messageItems.add(
+                        ChatData(
+                            msgSnapshot.child("time").value as Long,
+                            msgSnapshot.child("sender").value as String,
+                            msgSnapshot.child("content").value as String
+                        )
+                    )
+
+                    adapter!!.notifyDataSetChanged()
+                    if (messageItems.size != 0) {
+                        listView!!.scrollToPosition(messageItems.size - 1)
+                    }
+                }
+            }
+        }
+
+        chatRef!!.addListenerForSingleValueEvent(msgInitListener)
         chatRef!!.addValueEventListener(msgEventListener)
     }
 
