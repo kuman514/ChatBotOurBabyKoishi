@@ -19,27 +19,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //helloKoishi()
         setNickname()
-        //enterChatbot()
 
         // Main activity terminates right after exiting the chat activity
         finish()
     }
 
-    private fun helloKoishi() {
-        // For testing
-        PersonalInfo.id = "kuman514"
-    }
-
     private fun setNickname() {
         val setNameIntent = Intent(this, SetNicknameActivity::class.java)
         startActivity(setNameIntent)
-    }
-
-    private fun enterChatbot() {
-        val chatIntent = Intent(this, ChatActivity::class.java)
-        startActivity(chatIntent)
     }
 }

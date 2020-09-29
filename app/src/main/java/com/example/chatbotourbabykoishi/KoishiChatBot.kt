@@ -31,15 +31,14 @@ object KoishiChatBot {
             settingsBuilder = SessionsSettings.newBuilder()
             sessionsSettings = settingsBuilder!!.setCredentialsProvider(FixedCredentialsProvider.create(credentials)).build()
 
-            Log.d(MainActivity.TAG + "Dialogflow", settingsBuilder.toString())
-            Log.d(MainActivity.TAG + "Dialogflow", sessionsSettings.toString())
+            //Log.d(MainActivity.TAG + "Dialogflow", settingsBuilder.toString())
+            //Log.d(MainActivity.TAG + "Dialogflow", sessionsSettings.toString())
 
             client = SessionsClient.create(sessionsSettings)
 
-            Log.d(MainActivity.TAG + "Dialogflow", "Initialization complete.")
+            //Log.d(MainActivity.TAG + "Dialogflow", "Initialization complete.")
         } catch (e: Exception) {
             Log.e(MainActivity.TAG + "Dialogflow", "Dialogflow system failed.")
-            e.printStackTrace()
         }
     }
 
@@ -51,7 +50,7 @@ object KoishiChatBot {
     @Throws(Exception::class)
     fun detectIntentText(somePayload: Int, text: String): QueryResult {
         if(client == null || session == null){
-            throw Exception("Error: no dialogflow client")
+            throw Exception("Error: no Dialogflow client")
         }
 
         // Set the text (input) and language code (en) for the query

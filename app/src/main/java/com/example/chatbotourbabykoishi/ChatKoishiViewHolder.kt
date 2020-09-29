@@ -9,7 +9,7 @@ import java.util.*
 
 class ChatKoishiViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun setChattingRoom(chatMsg: ChatData) {
-        Log.d(MainActivity.TAG + "ChatMyViewHolder", itemView.toString())
+        //Log.d(MainActivity.TAG + "ChatMyViewHolder", itemView.toString())
 
         val tvMsg = itemView.chattingMessageTextView
         val tvTime = itemView.chattingMessageTimestampTextView

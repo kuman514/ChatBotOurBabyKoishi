@@ -73,13 +73,15 @@ class ChatActivity : AppCompatActivity() {
                 clickSend()
                 GlobalScope.async {
                     koishiResponse(msgToKoishi)
+                    if(messageItems.size != 0) {
+                        listView!!.scrollToPosition(messageItems.size - 1)
+                    }
                 }
                 contentText!!.text.clear()
             }
         }
         // [DONE Setup the references]
 
-        //showKoishiStatus()
         readMyMessages()
     }
 
@@ -90,7 +92,7 @@ class ChatActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 messageItems.clear()
                 for (msgSnapshot in snapshot.children) {
-                    Log.d(MainActivity.TAG + "Snapshot", msgSnapshot.toString())
+                    //Log.d(MainActivity.TAG + "Snapshot", msgSnapshot.toString())
                     messageItems.add(
                         ChatData(
                             msgSnapshot.child("time").value as Long,
@@ -128,7 +130,6 @@ class ChatActivity : AppCompatActivity() {
 
         val msgToSend = ChatData(time, uid, cont)
         chatRef!!.push().setValue(msgToSend)
-        //contentText!!.text.clear()
 
         val imm: InputMethodManager =
             getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -141,7 +142,7 @@ class ChatActivity : AppCompatActivity() {
 
         // Koishi's message
         val responseMsg = result.fulfillmentText
-        Log.d(MainActivity.TAG + "ChatBotResponse", responseMsg)
+        //Log.d(MainActivity.TAG + "ChatBotResponse", responseMsg)
 
         val uid = getString(R.string.koishiChattingId)
         val time: Long = System.currentTimeMillis()
@@ -154,7 +155,7 @@ class ChatActivity : AppCompatActivity() {
     }
 
     private fun neutralMessage(displayName: String) {
-        Log.d(MainActivity.TAG + "ChatBotResponseType", displayName)
+        //Log.d(MainActivity.TAG + "ChatBotResponseType", displayName)
         when (displayName) {
             "FeelingBerigoo" -> onFeelingBerigoo()
             "GettingAsleep" -> onGettingAsleep()
