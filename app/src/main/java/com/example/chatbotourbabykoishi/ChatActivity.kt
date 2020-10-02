@@ -93,6 +93,7 @@ class ChatActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (msgSnapshot in snapshot.children) {
                     //Log.d(MainActivity.TAG + "Snapshot", msgSnapshot.toString())
+
                     messageItems.add(
                         ChatData(
                             msgSnapshot.child("time").value as Long,
@@ -104,6 +105,11 @@ class ChatActivity : AppCompatActivity() {
 
                 messageItems.sortBy {
                     it.time
+                }
+
+                // Remove the latest message for addition in msgEventListener
+                if (messageItems.size != 0) {
+                    messageItems.removeAt(messageItems.lastIndex)
                 }
 
                 adapter!!.notifyDataSetChanged()
