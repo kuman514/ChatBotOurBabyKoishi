@@ -211,7 +211,7 @@ class ChatActivity : AppCompatActivity() {
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
 
-        KoishiStatus.modifyValue(1, 2, -1, 4)
+        KoishiStatus.modifyValue(5, 3, -3, 5)
         KoishiStatus.updateValue()
     }
 
@@ -222,7 +222,7 @@ class ChatActivity : AppCompatActivity() {
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
 
-        KoishiStatus.modifyValue(-50, 0, -10, 5)
+        KoishiStatus.modifyValue(-50, 0, -20, 5)
         KoishiStatus.updateValue()
     }
 
@@ -233,7 +233,7 @@ class ChatActivity : AppCompatActivity() {
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
 
-        KoishiStatus.modifyValue(2, 2, 50, 5)
+        KoishiStatus.modifyValue(5, 5, 30, 8)
         KoishiStatus.updateValue()
     }
 
@@ -244,7 +244,7 @@ class ChatActivity : AppCompatActivity() {
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
 
-        KoishiStatus.modifyValue(1, 5, -1, 5)
+        KoishiStatus.modifyValue(-8, 3, -5, 5)
         KoishiStatus.updateValue()
     }
 
@@ -255,7 +255,7 @@ class ChatActivity : AppCompatActivity() {
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
 
-        KoishiStatus.modifyValue(2, 1, -2, 1)
+        KoishiStatus.modifyValue(1, 2, -1, 2)
         KoishiStatus.updateValue()
     }
 
@@ -266,7 +266,7 @@ class ChatActivity : AppCompatActivity() {
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
 
-        KoishiStatus.modifyValue(2, 1, -2, 1)
+        KoishiStatus.modifyValue(10, 0, -10, 0)
         KoishiStatus.updateValue()
     }
 
@@ -277,7 +277,7 @@ class ChatActivity : AppCompatActivity() {
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
 
-        KoishiStatus.modifyValue(2, 1, -2, 1)
+        KoishiStatus.modifyValue(5, 10, -8, 10)
         KoishiStatus.updateValue()
     }
 
@@ -288,7 +288,7 @@ class ChatActivity : AppCompatActivity() {
         val msgToSend = ChatData(time, uid, msg)
         chatRef!!.push().setValue(msgToSend)
 
-        KoishiStatus.modifyValue(2, 1, -2, 1)
+        KoishiStatus.modifyValue(10, -10, -10, -15)
         KoishiStatus.updateValue()
     }
 

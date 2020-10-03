@@ -19,11 +19,11 @@
     <string name="chatbotCatMeow">애기코이시 야옹~ 고양이 흏내~</string>
     <string name="chatbotAngry">애기코이시가 화가 났어요</string>
 
-
     <string name="fatigueStr">피로감</string>
     <string name="favorabilityStr">호감도</string>
     <string name="fullnessStr">포만감</string>
     <string name="happinessStr">행복</string>
 
     <string name="pntLoading">로딩중</string>
+    <string name="notePlease">Please note: only Korean language available</string>
 </resources>
