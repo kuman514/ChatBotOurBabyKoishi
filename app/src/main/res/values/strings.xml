@@ -15,6 +15,11 @@
     <string name="chatbotRelaxedByPat">애기코이시 쓰담받아서 편안해요</string>
     <string name="chatbotSayingHello">애기코이시가 반가워해요</string>
     <string name="chatbotDidNotUnderstand">애기코이시가 못알아들었어요</string>
+    <string name="chatbotUnconsciousness">애기코이시의 무의식…</string>
+    <string name="chatbotCatMeow">애기코이시 야옹~ 고양이 흏내~</string>
+    <string name="chatbotAngry">애기코이시가 화가 났어요</string>
+
+
     <string name="fatigueStr">피로감</string>
     <string name="favorabilityStr">호감도</string>
     <string name="fullnessStr">포만감</string>

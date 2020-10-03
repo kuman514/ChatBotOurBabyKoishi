@@ -194,6 +194,10 @@ class ChatActivity : AppCompatActivity() {
             "HavingMeal" -> onHavingMeal()
             "RelaxedByPat" -> onRelaxedByPat()
             "SayingHello" -> onSayingHello()
+            "Unconsciousness" -> onUnconsciousness()
+            "CatMeow" -> onCatMeow()
+            "Angry" -> onAngry()
+            "HartmannNoYokaiShoujo" -> onHartmannNoYokaiShoujo()
             else -> onDidNotUnderstand()
         }
 
@@ -253,6 +257,43 @@ class ChatActivity : AppCompatActivity() {
 
         KoishiStatus.modifyValue(2, 1, -2, 1)
         KoishiStatus.updateValue()
+    }
+
+    private fun onUnconsciousness() {
+        val msg = getString(R.string.chatbotUnconsciousness)
+        val uid = getString(R.string.neutralMessageId)
+        val time: Long = System.currentTimeMillis()
+        val msgToSend = ChatData(time, uid, msg)
+        chatRef!!.push().setValue(msgToSend)
+
+        KoishiStatus.modifyValue(2, 1, -2, 1)
+        KoishiStatus.updateValue()
+    }
+
+    private fun onCatMeow() {
+        val msg = getString(R.string.chatbotCatMeow)
+        val uid = getString(R.string.neutralMessageId)
+        val time: Long = System.currentTimeMillis()
+        val msgToSend = ChatData(time, uid, msg)
+        chatRef!!.push().setValue(msgToSend)
+
+        KoishiStatus.modifyValue(2, 1, -2, 1)
+        KoishiStatus.updateValue()
+    }
+
+    private fun onAngry() {
+        val msg = getString(R.string.chatbotAngry)
+        val uid = getString(R.string.neutralMessageId)
+        val time: Long = System.currentTimeMillis()
+        val msgToSend = ChatData(time, uid, msg)
+        chatRef!!.push().setValue(msgToSend)
+
+        KoishiStatus.modifyValue(2, 1, -2, 1)
+        KoishiStatus.updateValue()
+    }
+
+    private fun onHartmannNoYokaiShoujo() {
+        TODO("Show https://youtu.be/61-RF-q7RmI")
     }
 
     private fun onDidNotUnderstand() {
