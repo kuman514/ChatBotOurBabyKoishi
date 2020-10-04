@@ -13,7 +13,7 @@ object KoishiStatus {
 
     fun initStatus(firebaseDatabase: FirebaseDatabase, chatActivity: ChatActivity) {
         statRef = firebaseDatabase.getReference("koishistatus").child(PersonalInfo.id!!)
-        statRef!!.addListenerForSingleValueEvent(object : ValueEventListener {
+        statRef!!.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {}
 
             override fun onDataChange(snapshot: DataSnapshot) {

@@ -73,9 +73,6 @@ class ChatActivity : AppCompatActivity() {
                 clickSend()
                 GlobalScope.async {
                     koishiResponse(msgToKoishi)
-                    if(messageItems.size != 0) {
-                        listView!!.scrollToPosition(messageItems.size - 1)
-                    }
                 }
                 contentText!!.text.clear()
             }
@@ -149,6 +146,9 @@ class ChatActivity : AppCompatActivity() {
     }
 
     fun showKoishiStatus() {
+        Log.d(MainActivity.TAG + "Status", KoishiStatus.fatigue.toString() + ", "
+                + KoishiStatus.favorability.toString() + ", " + KoishiStatus.fullness.toString() + ", " + KoishiStatus.happiness.toString())
+
         fatiguePoint.text = KoishiStatus.fatigue.toString()
         favorabilityPoint.text = KoishiStatus.favorability.toString()
         fullnessPoint.text = KoishiStatus.fullness.toString()
@@ -201,6 +201,13 @@ class ChatActivity : AppCompatActivity() {
             else -> onDidNotUnderstand()
         }
 
+        finishingMethod()
+    }
+
+    private fun finishingMethod() {
+        if(messageItems.size != 0) {
+            listView!!.scrollToPosition(messageItems.size - 1)
+        }
         showKoishiStatus()
     }
 
