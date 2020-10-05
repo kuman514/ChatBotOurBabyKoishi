@@ -24,10 +24,7 @@ object KoishiStatus {
                     happiness = snapshot.child("happiness").value as Long
                 }
                 else {
-                    statRef!!.child("fatigue").setValue(fatigue)
-                    statRef!!.child("favorability").setValue(favorability)
-                    statRef!!.child("fullness").setValue(fullness)
-                    statRef!!.child("happiness").setValue(happiness)
+                    updateValue()
                 }
 
                 chatActivity.showKoishiStatus()
@@ -36,10 +33,8 @@ object KoishiStatus {
     }
 
     fun updateValue() {
-        statRef!!.child("fatigue").setValue(fatigue)
-        statRef!!.child("favorability").setValue(favorability)
-        statRef!!.child("fullness").setValue(fullness)
-        statRef!!.child("happiness").setValue(happiness)
+        val koishiStatusSender = KoishiStatusData(fatigue, favorability, fullness, happiness)
+        statRef!!.setValue(koishiStatusSender)
     }
 
     fun modifyValue(ft: Int = 0, fv: Int = 0, ful: Int = 0, hp: Int = 0) {
