@@ -27,10 +27,11 @@
 
             <TextView
                 android:id="@+id/fatigueText"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="@string/fatigueStr"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/fatiguePoint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -38,10 +39,11 @@
 
             <TextView
                 android:id="@+id/fatiguePoint"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:text="@string/pntLoading"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -62,10 +64,11 @@
 
             <TextView
                 android:id="@+id/favorabilityText"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="@string/favorabilityStr"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/favorabilityPoint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,10 +76,11 @@
 
             <TextView
                 android:id="@+id/favorabilityPoint"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:text="@string/pntLoading"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -97,10 +101,11 @@
 
             <TextView
                 android:id="@+id/fullnessText"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="@string/fullnessStr"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/fullnessPoint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -108,10 +113,11 @@
 
             <TextView
                 android:id="@+id/fullnessPoint"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:text="@string/pntLoading"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -130,10 +136,11 @@
 
             <TextView
                 android:id="@+id/happinessText"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="@string/happinessStr"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/happinessPoint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -141,10 +148,11 @@
 
             <TextView
                 android:id="@+id/happinessPoint"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:text="@string/pntLoading"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

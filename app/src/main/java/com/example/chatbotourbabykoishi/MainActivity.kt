@@ -3,17 +3,12 @@ package com.example.chatbotourbabykoishi
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.google.firebase.database.*
-import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
-import com.google.firebase.ktx.Firebase
-import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "OurBabyKoishiDebug"
+        lateinit var LANG: String
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

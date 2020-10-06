@@ -1,29 +1,29 @@
-<resources>
-    <string name="app_name">우리우리 애기코이시</string>
-    <string name="sendButtonName">보내기</string>
-    <string name="chatContentName">애기코이시한테 하고 싶은 말?</string>
-    <string name="koishiChattingName">코이시</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Chatbot Our Baby Koishi</string>
+    <string name="sendButtonName">Send</string>
+    <string name="chatContentName">What you gonna say?</string>
+    <string name="koishiChattingName">Baby Koishi</string>
     <string name="koishiChattingId">Koishi</string>
     <string name="neutralMessageId">Neutral</string>
-    <string name="enterYourNickname">닉네임을 입력해주세요.</string>
+    <string name="enterYourNickname">Please enter your nickname.</string>
     <string name="koishiPicture">Koishi\'s Picture</string>
-    <string name="enterKoishiChatbot">들어가기</string>
+    <string name="enterKoishiChatbot">Start Chatting</string>
 
-    <string name="chatbotFeelingBerigoo">애기코이시 기분이 berigoo!</string>
-    <string name="chatbotGettingAsleep">애기코이시가 새근새근 잡니다</string>
-    <string name="chatbotHavingMeal">애기코이시 맛있게 냠냠~</string>
-    <string name="chatbotRelaxedByPat">애기코이시 쓰담받아서 편안해요</string>
-    <string name="chatbotSayingHello">애기코이시가 반가워해요</string>
-    <string name="chatbotDidNotUnderstand">애기코이시가 못알아들었어요</string>
-    <string name="chatbotUnconsciousness">애기코이시의 무의식…</string>
-    <string name="chatbotCatMeow">애기코이시 야옹~ 고양이 흏내~</string>
-    <string name="chatbotAngry">애기코이시가 화가 났어요</string>
+    <string name="chatbotFeelingBerigoo">Koishi feeling berigoo!</string>
+    <string name="chatbotGettingAsleep">Baby Koishi getting asleep…</string>
+    <string name="chatbotHavingMeal" tools:ignore="Typos">Baby Koishi munch munch</string>
+    <string name="chatbotRelaxedByPat">Baby Koishi gets relaxing…</string>
+    <string name="chatbotSayingHello">Koishi welcoming you!</string>
+    <string name="chatbotDidNotUnderstand">Koishi didn\'t understand</string>
+    <string name="chatbotUnconsciousness">This is… Koishi\'s unconsciousness…</string>
+    <string name="chatbotCatMeow">Baby cat Koishi meowing~</string>
+    <string name="chatbotAngry">Baby Koishi got so angry!</string>
 
-    <string name="fatigueStr">피로감</string>
-    <string name="favorabilityStr">호감도</string>
-    <string name="fullnessStr">포만감</string>
-    <string name="happinessStr">행복</string>
+    <string name="fatigueStr">Fatigue</string>
+    <string name="favorabilityStr">Favorability</string>
+    <string name="fullnessStr">Fullness</string>
+    <string name="happinessStr">Happiness</string>
 
-    <string name="pntLoading">로딩중</string>
+    <string name="pntLoading">Loading</string>
     <string name="notePlease">Please note: only Korean language available</string>
 </resources>
