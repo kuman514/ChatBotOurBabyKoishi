@@ -54,7 +54,7 @@ object KoishiChatBot {
         }
 
         // Set the text (input) and language code (en) for the query
-        val textInput = TextInput.newBuilder().setText(text).setLanguageCode(LANGUAGE_CODE)
+        val textInput = TextInput.newBuilder().setText(text).setLanguageCode(MainActivity.LANG)
 
         // Build the query with the TextInput
         val queryInput = QueryInput.newBuilder().setText(textInput).build()

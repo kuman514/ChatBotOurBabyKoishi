@@ -25,5 +25,5 @@
     <string name="happinessStr">Happiness</string>
 
     <string name="pntLoading">Loading</string>
-    <string name="notePlease">Please note: only Korean language available</string>
+    <string name="notePlease">Current language: English</string>
 </resources>

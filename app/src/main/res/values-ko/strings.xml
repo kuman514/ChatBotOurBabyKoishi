@@ -25,5 +25,5 @@
     <string name="happinessStr">행복</string>
 
     <string name="pntLoading">로딩중</string>
-    <string name="notePlease">Please note: only Korean language available</string>
+    <string name="notePlease">현재 언어: 한국어</string>
 </resources>

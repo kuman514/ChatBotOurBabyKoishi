@@ -1,8 +1,9 @@
 package com.example.chatbotourbabykoishi
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +14,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val systemLocale = applicationContext.resources.configuration.locales[0]
+        LANG = when (systemLocale.language) {
+            "ko" -> "ko"
+            else -> "en"
+        }
+        Log.d(TAG + "Language", LANG)
+
         setContentView(R.layout.activity_main)
         setNickname()
 
