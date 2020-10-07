@@ -197,7 +197,7 @@ class ChatActivity : AppCompatActivity() {
             "Unconsciousness" -> onUnconsciousness()
             "CatMeow" -> onCatMeow()
             "Angry" -> onAngry()
-            "HartmannNoYokaiShoujo" -> onHartmannNoYokaiShoujo()
+            //"HartmannNoYokaiShoujo" -> onHartmannNoYokaiShoujo()
             else -> onDidNotUnderstand()
         }
 
@@ -299,9 +299,11 @@ class ChatActivity : AppCompatActivity() {
         KoishiStatus.updateValue()
     }
 
+    /*
     private fun onHartmannNoYokaiShoujo() {
         TODO("Show https://youtu.be/61-RF-q7RmI")
     }
+     */
 
     private fun onDidNotUnderstand() {
         val msg = getString(R.string.chatbotDidNotUnderstand)
